@@ -1,0 +1,11 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: CQRS-KAFKA-UI
+custom-ui:
+  credentials:
+    -
+      username: adel
+      password: adel123
+      role: USER
