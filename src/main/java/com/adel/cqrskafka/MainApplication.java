@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Push
 @EnableKafka
 @EnableAsync
-
 public class MainApplication implements AppShellConfigurator {
 
 	public static void main(String[] args) {

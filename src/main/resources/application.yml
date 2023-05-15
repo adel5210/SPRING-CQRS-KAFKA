@@ -1,11 +1,56 @@
 server:
   port: 9090
+
 spring:
   application:
     name: CQRS-KAFKA-UI
+  main:
+    banner-mode: off
+  data:
+    redis:
+      url: ${REDIS_URL}
+      password: ${REDIS_PSSWD}
+  kafka:
+    bootstrap-servers: ${UPTASH_KAFKA_ENDPOINT}
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: SCRAM-SHA-256
+      sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="${kafka-uptash.user}" password="${kafka-uptash.password}";
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      transaction-id-prefix: ${kafka-uptash.topic.producer}_TID
+    consumer:
+      group-id: ${kafka-uptash.topic.consumer}_GID
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        isolation.level: read_committed
+      enable-auto-commit: false
+    streams:
+      bootstrap-servers: ${UPTASH_KAFKA_ENDPOINT}
+      application-id: KS_CQRS-KAFKA
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        compression.type: gzip
+
+component:
+  post-init: false
+
+
+# Custom config
 custom-ui:
   credentials:
     -
       username: adel
       password: adel123
       role: USER
+
+kafka-uptash:
+  user: ${UPTASH_KAFKA_USER}
+  password: ${UPTASH_KAFKA_PSSWD}
+  topic:
+    consumer: K_SIMPLE_TOPIC
+    producer: K_SIMPLE_TOPIC
