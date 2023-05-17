@@ -14,7 +14,7 @@ import org.springframework.security.provisioning.UserDetailsManager;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class SecurityConfig extends VaadinWebSecurity {
 
@@ -22,8 +22,11 @@ public class SecurityConfig extends VaadinWebSecurity {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests().requestMatchers("/api/v1/query/**").permitAll()
+                .and()
+                .authorizeHttpRequests().requestMatchers("/api/v1/query/**").permitAll();
         super.configure(http);
-
         setLoginView(http, LoginView.class);
     }
 

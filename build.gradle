@@ -29,7 +29,7 @@ dependencies {
 	implementation 'com.vaadin:vaadin-spring-boot-starter'
 	implementation 'org.apache.kafka:kafka-streams'
 	implementation 'org.springframework.kafka:spring-kafka'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'me.paulschwarz:spring-dotenv:3.0.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.0.4'
 	compileOnly 'org.projectlombok:lombok'
