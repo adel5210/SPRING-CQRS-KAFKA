@@ -1,17 +1,16 @@
-package com.adel.cqrskafka.query.controller;
+package com.adel.cqrskafka.command.controller;
 
-import com.adel.cqrskafka.query.service.PublisherService;
+import com.adel.cqrskafka.command.service.PublisherService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/query")
 @RequiredArgsConstructor
 @Slf4j
-public class QueryController {
+public class CommandController {
 
     private final PublisherService publisherService;
 

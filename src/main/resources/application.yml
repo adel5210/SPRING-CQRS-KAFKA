@@ -54,3 +54,7 @@ kafka-uptash:
   topic:
     consumer: K_SIMPLE_TOPIC
     producer: K_SIMPLE_TOPIC
+
+
+logging:
+  pattern.console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){blue} %clr(---){faint} %clr([%15.15t]){yellow} %clr(:){red} %clr(%m){faint}%n"

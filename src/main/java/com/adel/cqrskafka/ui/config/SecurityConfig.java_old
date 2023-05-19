@@ -20,6 +20,7 @@ public class SecurityConfig extends VaadinWebSecurity {
 
     private final CustomConfig customConfig;
 
+//
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

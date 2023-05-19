@@ -1,4 +1,4 @@
-package com.adel.cqrskafka.command.service;
+package com.adel.cqrskafka.query.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +16,8 @@ public class ListenerService {
 
     @Transactional
     @KafkaListener(
-            id = "K_SIMPLE_TOPIC",
-            topics = "K_SIMPLE_TOPIC"
+            id = "${kafka-uptash.topic.consumer}",
+            topics = "${kafka-uptash.topic.consumer}"
     )
     public void topicListener(final String message) {
         log.info("Receive data {}", message);
