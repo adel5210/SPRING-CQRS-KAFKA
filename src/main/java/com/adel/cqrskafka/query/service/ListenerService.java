@@ -1,5 +1,7 @@
 package com.adel.cqrskafka.query.service;
 
+import com.adel.cqrskafka.entities.model.BaseEvent;
+import com.adel.cqrskafka.entities.model.SimpleMessageEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,15 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class ListenerService {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
-
     @Transactional
     @KafkaListener(
             id = "${kafka-uptash.topic.consumer}",
             topics = "${kafka-uptash.topic.consumer}"
     )
-    public void topicListener(final String message) {
-        log.info("Receive data {}", message);
+    public void topicListener(final BaseEvent data) {
+        log.info("Receive data {}", data);
     }
 
 }

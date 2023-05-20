@@ -1,7 +1,9 @@
 package com.adel.cqrskafka.command.service;
 
 import com.adel.cqrskafka.entities.enums.LogsStatus;
+import com.adel.cqrskafka.entities.model.BaseEvent;
 import com.adel.cqrskafka.entities.model.Logs;
+import com.adel.cqrskafka.entities.model.SimpleMessageEvent;
 import com.adel.cqrskafka.entities.repository.LogsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class PublisherService {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, BaseEvent> kafkaTemplate;
     private final LogsRepository logsRepository;
 
     @Transactional
@@ -33,7 +35,14 @@ public class PublisherService {
                 .build();
         logsRepository.save(logs);
 
-        final CompletableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, message);
+        final CompletableFuture<SendResult<String, BaseEvent>> result = kafkaTemplate.send(topic,
+                new SimpleMessageEvent(
+                        logs.getId(),
+                        topic,
+                        "Simple message",
+                        message
+                )
+        );
         result
                 .thenAccept(r -> {
                     log.info("Published successfully");
@@ -44,7 +53,7 @@ public class PublisherService {
                 .exceptionally(ex -> {
                     log.error("Fail to published");
                     logs.setStatus(LogsStatus.ERROR);
-                    logs.setListenedAt(new Date());8
+                    logs.setListenedAt(new Date());
                     logsRepository.save(logs);
                     throw new RuntimeException(ex.getMessage());
                 });

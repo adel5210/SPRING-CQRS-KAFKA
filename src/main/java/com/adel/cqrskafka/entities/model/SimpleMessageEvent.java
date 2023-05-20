@@ -1,13 +1,15 @@
 package com.adel.cqrskafka.entities.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class SimpleMessageEvent extends BaseEvent {
 
-    private final String title;
-    private final String message;
+    private String title;
+    private String message;
 
     public SimpleMessageEvent(String id, String topic, String title, String message) {
         super(id, topic);
