@@ -6,5 +6,6 @@ RUN gradle clean build --no-daemon -x test
 FROM openjdk:17
 COPY --from=build /home/gradle/src/build/libs/*.jar .
 WORKDIR .
+RUN chmod -R 777 /cqrs-kafka-0.0.1-SNAPSHOT.jar
 RUN ls -al /
 ENTRYPOINT ["java", "-jar", "/cqrs-kafka-0.0.1-SNAPSHOT.jar"]
