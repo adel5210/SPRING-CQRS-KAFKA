@@ -1,7 +1,7 @@
 buildscript {
 	repositories {
 		mavenCentral()
-		maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
+//		maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
 	}
 }
 
@@ -25,8 +25,8 @@ configurations {
 
 repositories {
 	mavenCentral()
-	maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
-	maven { setUrl("https://maven.vaadin.com/vaadin-addons") }
+//	maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
+//	maven { setUrl("https://maven.vaadin.com/vaadin-addons") }
 }
 
 ext {

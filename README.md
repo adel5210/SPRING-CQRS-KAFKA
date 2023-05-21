@@ -22,5 +22,10 @@ Use this reference https://git-lfs.com/
 ### Run Gradle prod
 `clean build jar --project-prop vaadin.productionMode=true`
 
-### Gradle build
+###  Build commands
 `./gradlew clean vaadinBuildFrontend build`
+
+`npm install --verbose`
+
+### Other fixes
+"@vaadin/component-base": "24.0.3" <- package.json
