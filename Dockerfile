@@ -5,7 +5,7 @@
 #WORKDIR /home/gradle/src
 #RUN gradle clean build --no-daemon -x test
 
-FROM openjdk:19
+FROM openjdk:17
 #COPY --from=build /home/gradle/src/build/libs/*.jar .
 COPY build/libs/cqrs-kafka-0.0.1-SNAPSHOT.jar run.jar
 #WORKDIR .

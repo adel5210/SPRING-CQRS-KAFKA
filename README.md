@@ -19,3 +19,9 @@ Use this reference https://git-lfs.com/
 
 ### redeploy through okteto
 - run `okteto up dev --deploy`
+
+### Technical issue on okteto
+- Sleep all pods
+
+### Run Gradle prod
+`clean build jar --project-prop vaadin.productionMode=true`
