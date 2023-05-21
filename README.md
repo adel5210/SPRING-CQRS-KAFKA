@@ -23,4 +23,4 @@ Use this reference https://git-lfs.com/
 `clean build jar --project-prop vaadin.productionMode=true`
 
 ### Gradle build
-`./gradlew clean vaadinClean vaadinBuildFrontend build`
+`./gradlew clean vaadinBuildFrontend build`
