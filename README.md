@@ -16,12 +16,11 @@ Use this reference https://git-lfs.com/
 - run `okteto up`
 - Select NO to not create okteto cli
 
-
-### redeploy through okteto
-- run `okteto up dev --deploy`
-
 ### Technical issue on okteto
 - Sleep all pods
 
 ### Run Gradle prod
 `clean build jar --project-prop vaadin.productionMode=true`
+
+### Gradle build
+`./gradlew clean vaadinClean vaadinBuildFrontend build`
