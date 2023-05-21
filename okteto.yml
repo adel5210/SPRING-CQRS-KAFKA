@@ -38,6 +38,7 @@ dev:
       - .:/usr/src/app
     forward:
       - 5005:5005
+      - 8080:8080
     volumes:
       - /home/gradle/.gradle
 
