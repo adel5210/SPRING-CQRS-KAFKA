@@ -1,6 +1,6 @@
 version: '1'
 services:
-  cqrs-kafka:
+  cqrs-kafka3:
     container_name: cqrs-kafka3
     build:
       context: .
