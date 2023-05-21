@@ -6,4 +6,5 @@ RUN gradle build --no-daemon
 FROM openjdk:17
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/run.jar
+RUN ls -al /app/
 ENTRYPOINT ["java", "-jar", "/app/run.jar"]
