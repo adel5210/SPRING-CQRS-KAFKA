@@ -8,12 +8,14 @@ import lombok.*;
 @NoArgsConstructor
 public class SimpleMessageEvent extends BaseEvent {
 
+    private String owner;
     private String title;
     private String message;
 
-    public SimpleMessageEvent(String id, String topic, String title, String message) {
+    public SimpleMessageEvent(String id, String topic, String title, String message, String owner) {
         super(id, topic);
         this.title = title;
         this.message = message;
+        this.owner = owner;
     }
 }

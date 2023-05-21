@@ -24,7 +24,7 @@ public class PublisherService {
     private final LogsRepository logsRepository;
 
     @Transactional
-    public String publish(final String topic, final String message) {
+    public String publish(final String topic, final String message, final String... owner) {
         log.info("Publish to topic {} ...", topic);
 
         final Logs logs = Logs.builder()
@@ -39,8 +39,9 @@ public class PublisherService {
                 new SimpleMessageEvent(
                         logs.getId(),
                         topic,
-                        "Simple message",
-                        message
+                        "simple message",
+                        message,
+                        owner.length > 0 ? owner[0] : "anonymous"
                 )
         );
         result

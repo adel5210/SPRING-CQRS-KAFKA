@@ -1,0 +1,15 @@
+version: '1'
+services:
+  cqrs-kafka:
+    container_name: cqrs-kafka
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cqrs-kafka:latest
+    ports:
+      - 8080:8080
+    networks:
+      - cqrs-kafka-network
+networks:
+  cqrs-kafka-network:
+    driver: bridge
