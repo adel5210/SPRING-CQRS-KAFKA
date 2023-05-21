@@ -1,4 +1,4 @@
 #!/bin/bash
 gradle --version
-gradle clean build -x test
+gradle build --continuous &
 gradle bootRun

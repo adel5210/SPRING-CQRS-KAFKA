@@ -1,15 +1,15 @@
 version: '1'
 services:
-  cqrs-kafka8:
-    container_name: cqrs-kafka8
+  cqrs-kafka9:
+    container_name: cqrs-kafka9
     build:
       context: .
       dockerfile: Dockerfile
-    image: cqrs-kafka8:latest
+    image: cqrs-kafka9:latest
     ports:
       - 8080:8080
     networks:
-      - cqrs-kafka8-network
+      - cqrs-kafka9-network
 networks:
-  cqrs-kafka8-network:
+  cqrs-kafka9-network:
     driver: bridge
