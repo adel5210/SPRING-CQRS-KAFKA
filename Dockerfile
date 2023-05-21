@@ -7,9 +7,9 @@
 
 FROM openjdk:17
 #COPY --from=build /home/gradle/src/build/libs/*.jar .
-COPY build/libs/cqrs-kafka-0.0.1-SNAPSHOT.jar run.jar
+#COPY build/libs/cqrs-kafka-0.0.1-SNAPSHOT.jar run.jar
 #WORKDIR .
 #RUN chmod -R 777 /cqrs-kafka-0.0.1-SNAPSHOT.jar
 RUN ls -al /
 #RUN echo $CACHEBUST
-ENTRYPOINT ["java", "-jar", "/run.jar"]
+ENTRYPOINT ["./gradlew", "bootRun"]
