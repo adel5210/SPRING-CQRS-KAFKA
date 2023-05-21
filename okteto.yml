@@ -34,11 +34,10 @@ dev:
       - 8080:8080
     volumes:
       - /home/gradle/.gradle
-
-environment:
-  REDIS_URL: redis://default:f19c3a8aaea342c5be16418e1dc9c86c@gusc1-together-finch-30637.upstash.io:30637
-  REDIS_PSSWD: f19c3a8aaea342c5be16418e1dc9c86c
-  UPTASH_KAFKA_USER: ZmxleGlibGUtaGVuLTg1MzUkOW9XH5yzo8jOZLyYj3TUO_LDRhiYQyUOwNb0SOM
-  UPTASH_KAFKA_PSSWD: a3d8f7958931416682b13e22f61f0352
-  UPTASH_KAFKA_ENDPOINT: flexible-hen-8535-us1-kafka.upstash.io:9092
+    environment:
+      REDIS_URL: redis://default:f19c3a8aaea342c5be16418e1dc9c86c@gusc1-together-finch-30637.upstash.io:30637
+      REDIS_PSSWD: f19c3a8aaea342c5be16418e1dc9c86c
+      UPTASH_KAFKA_USER: ZmxleGlibGUtaGVuLTg1MzUkOW9XH5yzo8jOZLyYj3TUO_LDRhiYQyUOwNb0SOM
+      UPTASH_KAFKA_PSSWD: a3d8f7958931416682b13e22f61f0352
+      UPTASH_KAFKA_ENDPOINT: flexible-hen-8535-us1-kafka.upstash.io:9092
 
