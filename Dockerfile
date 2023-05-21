@@ -6,5 +6,5 @@ RUN gradle build --no-daemon -x test
 FROM openjdk:17
 COPY --from=build /home/gradle/src/build/libs/*.jar .
 WORKDIR .
-RUN pwd
+RUN ls -al /
 ENTRYPOINT ["java", "-jar", "/run.jar"]
