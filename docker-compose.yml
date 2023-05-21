@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: cqrs-kafka2:latest
+    image: cqrs-kafka3:latest
     ports:
       - 8080:8080
     networks:
