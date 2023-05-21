@@ -13,4 +13,4 @@ EXPOSE 8080
 #RUN chmod -R 777 /cqrs-kafka-0.0.1-SNAPSHOT.jar
 #RUN ls -al /
 #RUN echo $CACHEBUST
-ENTRYPOINT ["sh", "start.sh"]
+CMD ["sh", "start.sh"]
