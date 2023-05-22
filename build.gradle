@@ -1,7 +1,6 @@
 buildscript {
 	repositories {
 		mavenCentral()
-//		maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
 	}
 }
 
@@ -25,14 +24,16 @@ configurations {
 
 repositories {
 	mavenCentral()
-//	maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
-//	maven { setUrl("https://maven.vaadin.com/vaadin-addons") }
 }
 
 ext {
 	set('vaadinVersion', "24.0.5")
 }
 
+
+/**
+ * Dependencies
+ */
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'com.vaadin:vaadin-spring-boot-starter'
@@ -58,9 +59,11 @@ dependencyManagement {
 	}
 }
 
+/**
+ * TASKS
+ */
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// ./gradlew clean vaadinClean vaadinBuildFrontend build
 defaultTasks("clean","vaadinBuildFrontend","build")

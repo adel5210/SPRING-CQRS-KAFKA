@@ -1,3 +1,3 @@
 FROM openjdk:17
-CMD ["java","--version"]
-ENTRYPOINT ["java", "-jar", "run.jar"]
+COPY release/*.jar run.jar
+ENTRYPOINT ["java", "-jar", "/run.jar"]
