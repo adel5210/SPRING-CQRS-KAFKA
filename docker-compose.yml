@@ -1,15 +1,15 @@
 version: '1'
 services:
-  cqrs-kafka16:
-    container_name: cqrs-kafka16
+  cqrs-kafka17:
+    container_name: cqrs-kafka17
     build:
       context: .
       dockerfile: Dockerfile
-    image: cqrs-kafka16:latest
+    image: cqrs-kafka17:latest
     ports:
       - 8080:8080
     networks:
-      - cqrs-kafka16-network
+      - cqrs-kafka17-network
 networks:
-  cqrs-kafka16-network:
+  cqrs-kafka17-network:
     driver: bridge

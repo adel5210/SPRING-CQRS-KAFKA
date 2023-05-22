@@ -1,3 +1,4 @@
 FROM openjdk:17-alpine
-COPY release/*.jar run.jar
-ENTRYPOINT ["java", "-jar", "/run.jar"]
+COPY release/*.jar /app/run.jar
+RUN ls -al /app
+ENTRYPOINT ["java", "-jar", "run.jar"]
